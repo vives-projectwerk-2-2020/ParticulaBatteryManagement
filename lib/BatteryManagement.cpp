@@ -41,7 +41,7 @@ namespace Particula {
 
     bool BatteryManagement::BatterySufficient(HardwareStatus* hardwareStatus){
         ReadBatteryStatus();
-        SetErrorStatus(&hardwareStatus)
+        SetErrorStatus(hardwareStatus);
         if (!chargestatus1 && chargestatus2 && powergood){
             return true;
         } else {

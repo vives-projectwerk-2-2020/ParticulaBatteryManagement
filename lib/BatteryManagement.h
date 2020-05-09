@@ -1,6 +1,7 @@
 #pragma once 
 
 #include "mbed.h"
+#include "hardwarestatus.h"
 
 namespace Particula{
 
@@ -21,5 +22,5 @@ namespace Particula{
             bool chargestatus2 = false;
             bool powergood = false;
 
-    }
-}
+    };
+};
