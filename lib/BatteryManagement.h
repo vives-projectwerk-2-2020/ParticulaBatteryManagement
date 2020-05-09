@@ -8,10 +8,10 @@ namespace Particula{
 
         public:
             BatteryManagement(PinName ,PinName , PinName );
-        public:
-            void SetErrorStatus(char * error_values);
-            bool BatterySufficient();
+        public:        
+            bool BatterySufficient(HardwareStatus* hardwareStatus);
         private:
+            void SetErrorStatus(HardwareStatus* hardwareStatus);
             void ReadBatteryStatus();
         private:
             PinName chs1;

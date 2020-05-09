@@ -26,21 +26,22 @@ namespace Particula {
         }
     }
 
-    void BatteryManagement::SetErrorStatus(char * error_values){
+    void BatteryManagement::SetErrorStatus(HardwareStatus* hardwareStatus){
         ReadBatteryStatus();
         if(chargestatus1){
-            (*error_values) |= (1u << 10);
+            (*hardwareStatus).set_stat1();
         } 
         if(chargestatus2){
-            (*error_values) |= (1u << 11);
+            (*hardwareStatus).set_stat2();
         } 
         if(powergood){
-            (*error_values) |= (1u << 12);
+             (*hardwareStatus).set_pg();
         }
     }
 
-    bool BatteryManagement::BatterySufficient(){
+    bool BatteryManagement::BatterySufficient(HardwareStatus* hardwareStatus){
         ReadBatteryStatus();
+        SetErrorStatus(&hardwareStatus)
         if (!chargestatus1 && chargestatus2 && powergood){
             return true;
         } else {
