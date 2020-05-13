@@ -18,9 +18,10 @@ namespace Particula{
             void ReadBatteryStatus();
 
         private:
-            PinName chs1;
-            PinName chs2;
-            PinName pg;
+            DigitalIn chs1;
+            DigitalIn chs2;
+            DigitalIn pg;
+
             bool chargestatus1 = false;
             bool chargestatus2 = false;
             bool powergood = false;
