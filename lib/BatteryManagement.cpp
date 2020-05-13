@@ -13,21 +13,10 @@ namespace Particula {
         DigitalIn CH2(chs2,PullDown);
         DigitalIn PG(pg,PullDown);
 
-        if(CH1.read() == 1){
-            chargestatus1 = true;
-        } else {
-            chargestatus1 = false;
-        }
-        if(CH2.read() == 1){
-            chargestatus2 = true;
-        } else {
-            chargestatus2 = false;
-        }
-        if(PG.read() == 1){
-            powergood = true;
-        } else {
-            powergood = false;
-        }
+        chargestatus1 = (CH1.read() == 1);
+        chargestatus2 = (CH2.read() == 1);
+        powergood = (PG.read() == 1);
+
     }
 
     void BatteryManagement::SetErrorStatus(HardwareStatus* hardwareStatus){
